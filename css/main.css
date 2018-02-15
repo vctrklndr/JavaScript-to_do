@@ -1,23 +1,43 @@
-html {
+body {
     margin: 0;
     font-family: 'Roboto Mono', monospace;
-    background-color: #c25b79;
     text-align: center;
+    background-color: #8cbed1;
+    background-image: linear-gradient(to top, #8cbed1 0%, #fbc2eb 100%);
+    background-repeat: no-repeat;
+    margin: 0;
+}
+
+a {
+    color: #1c1f6c;
+}
+
+a:hover {
+    color: #fff;
+    transition: 400ms;
 }
 
 h1 {
-    margin: 0;
-    padding: 0;
-    font-family: 'Futura', Helvetica, Arial, sans-serif;
-    font-size: 4rem;
-    font-weight: 900;
+    margin: 28px 0 20px 0;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 5rem;
+    /* font-weight: 900; */
     letter-spacing: .2rem;
+    color: #1c1f6c;
+    animation: fadein 3s;
+    -webkit-animation: fadein 3s;
+}
+
+label {
+    font-size: .7rem;
+    font-weight: 300;
     color: #fff;
 }
 
 #toDoInput {
+    margin: 0 10px;
     padding: 10px;
-    width: 200px;
+    width: 240px;
     letter-spacing: .05rem;
     background-color: #fff;
     border-radius: 15px;
@@ -25,7 +45,6 @@ h1 {
 }
 
 #addButton {
-    margin: 0px 10px;
     padding: 10px 20px;
     color: #fff;
     letter-spacing: .05rem;
@@ -43,16 +62,12 @@ h1 {
 
 .listWrapper {
     width: 100%;
-    display: flex;
-    justify-content: center;
 }
 
 .toDoList,
 .doneList {
     margin: 20px 10px;
     padding: 20px;
-    width: 350px;
-    font-family: 'Roboto Mono', monospace;
     font-size: .8rem;
     font-weight: 300;
     background-color: #fff;
@@ -64,13 +79,115 @@ h1 {
     text-decoration: line-through;
 }
 
+h2 {
+    margin: 0;
+    padding-bottom: 5px;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: .05rem;
+    color: #000;
+    border-bottom: 1px solid #f0f0f0;
+}
+
 ul {
     padding: 0;
     list-style: none;
 }
 
-footer p {
-    font-size: .8rem;
-    font-weight: 300;
+li {
+    margin: 10px 0;
+}
+
+#addToDo > li {
+    width: 100%;
+    font-size: .7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadein 1s;
+    -webkit-animation: fadein 1s;
+}
+
+#doneToDo > li {
+    font-size: .7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadein 1s;
+    -webkit-animation: fadein 1s;
+}
+
+#emptyButton {
+    margin-top: 10px;
+    padding: 10px 20px;
     color: #fff;
+    letter-spacing: .05rem;
+    background-color: transparent;
+    border-radius: 25px;
+    border: 1px solid #fff;
+}
+
+#emptyButton:hover {
+    color: #000;
+    background-color: #fff;
+    transition: all 400ms;
+    cursor: pointer;
+}
+
+.removeButton,
+.doneButton {
+    margin: 0 0 0 10px;
+    padding: 5px 10px;
+    letter-spacing: .05rem;
+    color: #1c1f6c;
+    background-color: transparent;
+    border-radius: 15px;
+    border: 1px solid #1c1f6c;
+}
+
+.removeButton:hover,
+.doneButton:hover {
+    color: #fff;
+    background-color: #1c1f6c;
+    transition: all 400ms;
+    cursor: pointer;
+}
+
+footer {
+    font-family: 'Roboto Mono', monospace;
+    font-size: .7rem;
+    font-weight: 100;
+    letter-spacing: .05rem;
+    color: #fff;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@media screen and (min-width: 700px) {
+    .listWrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .toDoList,
+    .doneList {
+        width: 350px;
+        margin: 20px 10px;
+    }
+
+    .toDoList:hover,
+    .doneList:hover {
+        margin: 15px 10px 25px 10px;
+        transition: 450ms;
+        box-shadow: 0px 10px 15px -2px rgba(0,0,0,0.2);
+    }
 }
