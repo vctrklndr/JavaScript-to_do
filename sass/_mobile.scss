@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
+    text-align: center;
+    letter-spacing: .05rem;
+    background-color: #8cbed1;
+    background-image: linear-gradient(to top, #8cbed1 0%, #fbc2eb 100%);
+    background-repeat: no-repeat;
+    margin: 0;
+    a {
+        color: #1c1f6c;
+    }
+    
+    a:hover {
+        color: #fff;
+        transition: 400ms;
+    }
+}
+
+h1 {
+    margin: 28px 0 20px 0;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 5rem;
+    letter-spacing: .2rem;
+    color: #1c1f6c;
+    animation: fadein 3s;
+    -webkit-animation: fadein 3s;
+}
+
+h2 {
+    margin: 0;
+    padding-bottom: 5px;
+    font-size: 1rem;
+    font-weight: 400;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+label {
+    font-size: .7rem;
+    color: #fff;
+}
+
+.addToDoWrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#toDoInput {
+    margin: 10px 10px;
+    padding: 10px;
+    width: 260px;
+    letter-spacing: .05rem;
+    background-color: #fff;
+    border-radius: 15px;
+    border: 0;
+}
+
+#addButton {
+    padding: 10px 20px;
+    color: #fff;
+    letter-spacing: .05rem;
+    background-color: transparent;
+    border-radius: 25px;
+    border: 1px solid #fff;
+}
+
+#addButton:hover {
+    color: #000;
+    background-color: #fff;
+    transition: all 400ms;
+    cursor: pointer;
+}
+
+.listWrapper {
+    width: 100%;
+}
+
+.toDoList {
+    margin: 20px 10px;
+    padding: 20px;
+    font-size: .8rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px -2px rgba(0,0,0,0.2);
+}
+
+.doneList {
+    @extend .toDoList;
+    ul {
+        li {
+            text-decoration: line-through;
+        }
+    } 
+}
+
+#addToDo {
+    padding: 0;
+    list-style: none;
+    li {
+        margin: 10px 0;
+        font-size: .7rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        animation: fadein 1s;
+        -webkit-animation: fadein 1s;
+    }
+}
+
+#doneToDo {
+    @extend #addToDo;
+}
+
+.doneButton,
+.removeButton {
+    margin: 0 0 0 10px;
+    padding: 5px 10px;
+    letter-spacing: .05rem;
+    color: #1c1f6c;
+    background-color: transparent;
+    border-radius: 15px;
+    border: 1px solid #1c1f6c;
+}
+
+.doneButton:hover,
+.removeButton:hover {
+    color: #fff;
+    background-color: #1c1f6c;
+    transition: all 400ms;
+    cursor: pointer;
+}
+
+#emptyButton {
+    @extend #addButton;
+    margin-top: 10px;
+}
+
+#emptyButton:hover {
+    @extend #addButton:hover;
+}
+
+footer {
+    @extend label;
+}

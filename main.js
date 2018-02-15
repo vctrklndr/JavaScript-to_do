@@ -18,10 +18,10 @@ const emptyButton = document
 
 // On enter key -> key up, event creates a new to do
 toDoInput.addEventListener('keyup', function(){
-    event.preventDefault();
     if (input.value === '') {
         alert("You forgot to add a new to do!");
     } else {
+        event.preventDefault();
         if (event.keyCode === 13) {
             document.getElementById('addButton').click();
         }
