@@ -1,15 +1,15 @@
 const toDoInput = document
     .getElementById('toDoInput');
 
-function alertMessage(){
+function alertMessage() {
     alert("You forgot to add a new to do!");
 }
 
-/* On enter keypress, event creates a new to do
-and if empty input field an alert is sent */
-toDoInput.addEventListener('keypress', function(e){
-    const key = e.keyCode;
-    if (key === 13) {
+/* On enter key, event creates a new to do
+and if empty input field – an alert is sent */
+toDoInput.addEventListener('keypress', function (e) {
+    const enterKey = e.keyCode;
+    if (enterKey === 13) {
         if (toDoInput.value === '') {
             alertMessage();
         } else {
@@ -22,8 +22,8 @@ toDoInput.addEventListener('keypress', function(e){
 })
 
 /* On click, event creates li and button elements
-and if empty input field an alert is sent */
-addButton.addEventListener('click', function(){
+and if empty input field – an alert is sent */
+addButton.addEventListener('click', function () {
     if (toDoInput.value === '') {
         alertMessage();
     } else {
@@ -40,7 +40,7 @@ addButton.addEventListener('click', function(){
         doneButton.className = "doneButton";
         doneButton.innerText = "Done";
 
-        const removeButton = document 
+        const removeButton = document
             .createElement('button');
         removeButton.className = "removeButton";
         removeButton.innerText = "Delete";
@@ -53,24 +53,26 @@ addButton.addEventListener('click', function(){
 
         /* Moves completed to do to 'done deal' list and
         removes 'done' button */
-        doneButton.addEventListener('click', function(){
+        doneButton.addEventListener('click', function () {
             buttonContainer.className = "deleteButtonContainer";
             doneToDo.appendChild(newListElement);
             doneButton.remove();
         })
 
-        // Deletes todo when clicked
-        removeButton.addEventListener('click', function(){
+        // Deletes todo from 'stuff to do' list when clicked
+        removeButton.addEventListener('click', function () {
             newListElement.classList.add('fadeOut');
-            setTimeout(function (){
+            setTimeout(function () {
                 newListElement.remove();
-              }, 380);
-            
+            }, 400);
         })
-        
+
         // Deletes every to do on both lists
-        emptyButton.addEventListener('click', function(){
-            newListElement.remove();
+        emptyButton.addEventListener('click', function () {
+            newListElement.classList.add('fadeOut');
+            setTimeout(function () {
+                newListElement.remove();
+            }, 400);
         })
     }
 })
