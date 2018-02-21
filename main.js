@@ -1,8 +1,65 @@
 const toDoInput = document
     .getElementById('toDoInput');
 
+const addButton = document
+    .getElementById('addButton');
+
+const toDos = document.
+    getElementById('toDos');
+
+const emptyAllButton = document.
+    getElementById('emptyAllButton');
+
 function alertMessage() {
     alert("You forgot to add a new to do!");
+}
+
+/* Function for creating a new list item with done and 
+delete buttons */
+function createNewToDo() {
+    const listItem = document.createElement('li');
+    const buttonContainer = document.createElement('div');
+    const doneButton = document.createElement('button');
+    const deleteButton = document.createElement('button');
+
+    listItem.innerText = toDoInput.value;
+
+    buttonContainer.className = "buttonContainer";
+    doneButton.className = "doneButton";
+    doneButton.innerText = "Done";
+    deleteButton.className = "deleteButton";
+    deleteButton.innerText = "Delete";
+
+    toDos.appendChild(listItem);
+    listItem.appendChild(buttonContainer);
+    buttonContainer.appendChild(doneButton);
+    buttonContainer.appendChild(deleteButton);
+    document.getElementById('toDoInput').value = '';
+
+    /* Moves completed to do to 'done deal' list and
+    removes 'done' button */
+    doneButton.addEventListener('click', function () {
+        buttonContainer.className = "deleteButtonContainer";
+        doneToDo.appendChild(listItem);
+        doneButton.remove();
+    })
+
+    function removeItems () {
+        listItem.classList.add('fadeOut');
+        setTimeout(function () {
+            listItem.remove();
+        }, 400);
+    }
+
+    // Deletes todo from 'stuff to do' list when clicked
+    deleteButton.addEventListener('click', function () {
+        removeItems();
+    })
+    
+    // Deletes every to do on both lists
+    emptyAllButton.addEventListener('click', function () {
+        removeItems();
+    })
 }
 
 /* On enter key, event creates a new to do
@@ -27,52 +84,6 @@ addButton.addEventListener('click', function () {
     if (toDoInput.value === '') {
         alertMessage();
     } else {
-        const newListElement = document
-            .createElement('li');
-        newListElement.innerText = toDoInput.value;
-
-        const buttonContainer = document
-            .createElement('div');
-        buttonContainer.className = "buttonContainer";
-
-        const doneButton = document
-            .createElement('button');
-        doneButton.className = "doneButton";
-        doneButton.innerText = "Done";
-
-        const removeButton = document
-            .createElement('button');
-        removeButton.className = "removeButton";
-        removeButton.innerText = "Delete";
-
-        addToDo.appendChild(newListElement);
-        newListElement.appendChild(buttonContainer);
-        buttonContainer.appendChild(doneButton);
-        buttonContainer.appendChild(removeButton);
-        document.getElementById('toDoInput').value = '';
-
-        /* Moves completed to do to 'done deal' list and
-        removes 'done' button */
-        doneButton.addEventListener('click', function () {
-            buttonContainer.className = "deleteButtonContainer";
-            doneToDo.appendChild(newListElement);
-            doneButton.remove();
-        })
-
-        // Deletes todo from 'stuff to do' list when clicked
-        removeButton.addEventListener('click', function () {
-            newListElement.classList.add('fadeOut');
-            setTimeout(function () {
-                newListElement.remove();
-            }, 400);
-        })
-
-        // Deletes every to do on both lists
-        emptyButton.addEventListener('click', function () {
-            newListElement.classList.add('fadeOut');
-            setTimeout(function () {
-                newListElement.remove();
-            }, 400);
-        })
+        createNewToDo();
     }
 })

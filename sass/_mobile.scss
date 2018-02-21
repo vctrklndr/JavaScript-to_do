@@ -7,14 +7,13 @@ body {
     background-color: #8cbed1;
     background-image: linear-gradient(to top, #8cbed1 0%, #fbc2eb 100%);
     background-repeat: no-repeat;
-    margin: 0;
     a {
         color: #1c1f6c;
     }
     
     a:hover {
         color: #fff;
-        transition: 400ms;
+        transition: all 400ms;
     }
 }
 
@@ -57,7 +56,8 @@ label {
     border: 0;
 }
 
-#addButton {
+#addButton,
+#addButton:active {
     padding: 10px 20px;
     color: #fff;
     letter-spacing: .05rem;
@@ -91,7 +91,7 @@ label {
     @extend .toDoList;
 }
 
-#addToDo {
+#toDos {
     padding: 0;
     list-style: none;
     li {
@@ -100,14 +100,14 @@ label {
         text-align: left;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         -webkit-animation: fadein 400ms;
         animation: fadein 400ms;
     }
 }
 
 #doneToDo {
-    @extend #addToDo;
+    @extend #toDos;
     li {
         text-decoration: line-through;
     }
@@ -118,7 +118,7 @@ label {
 }
 
 .doneButton,
-.removeButton {
+.deleteButton {
     margin: 0 0 0 10px;
     padding: 5px 10px;
     letter-spacing: .05rem;
@@ -129,19 +129,20 @@ label {
 }
 
 .doneButton:hover,
-.removeButton:hover {
+.deleteButton:hover {
     color: #fff;
     background-color: #1c1f6c;
     transition: all 400ms;
     cursor: pointer;
 }
 
-#emptyButton {
+#emptyAllButton {
     @extend #addButton;
     margin-top: 10px;
 }
 
-#emptyButton:hover {
+#emptyAllButton:hover,
+#emptyAllButton:active {
     @extend #addButton:hover;
 }
 
