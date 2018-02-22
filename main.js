@@ -19,8 +19,8 @@ delete buttons */
 function createNewToDo() {
     const listItem = document.createElement('li');
     const buttonContainer = document.createElement('div');
-    const doneButton = document.createElement('button');
-    const deleteButton = document.createElement('button');
+    var doneButton = document.createElement('button');
+    var deleteButton = document.createElement('button');
 
     listItem.innerText = toDoInput.value;
 
@@ -44,7 +44,7 @@ function createNewToDo() {
         doneButton.remove();
     })
 
-    function removeItems () {
+    function removeItems() {
         listItem.classList.add('fadeOut');
         setTimeout(function () {
             listItem.remove();
@@ -53,11 +53,13 @@ function createNewToDo() {
 
     // Deletes todo from 'stuff to do' list when clicked
     deleteButton.addEventListener('click', function () {
+        var deleteButton = document.getElementsByClassName('deleteButton');
         removeItems();
     })
-    
+
     // Deletes every to do on both lists
     emptyAllButton.addEventListener('click', function () {
+        var emptyAllButton = document.getElementsByClassName('emptyAllButton');
         removeItems();
     })
 }
