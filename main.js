@@ -8,7 +8,9 @@ const emptyAllButton = document.getElementById('emptyAllButton');
 the alert div in DOM */
 function alertMessage() {
     const alertParagraph = document.createElement('p');
-    alertParagraph.innerHTML = "<span class='boldText'>Ops!</span> You forgot to add a new to do!";
+    
+    alertParagraph.innerHTML = 
+        "<span class='boldText'>Ops!</span> You forgot to add a new to do!";
     alert.appendChild(alertParagraph);
 
     addButton.addEventListener('click', function () {
