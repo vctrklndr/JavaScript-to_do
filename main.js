@@ -1,17 +1,33 @@
-const toDoInput = document
-    .getElementById('toDoInput');
+const alert = document.getElementById('alert');
+const toDoInput = document.getElementById('toDoInput');
+const addButton = document.getElementById('addButton');
+const toDos = document.getElementById('toDos');
+const emptyAllButton = document.getElementById('emptyAllButton');
 
-const addButton = document
-    .getElementById('addButton');
-
-const toDos = document.
-    getElementById('toDos');
-
-const emptyAllButton = document.
-    getElementById('emptyAllButton');
-
+/* Function for alert message that appends a p-tag in
+the alert div in DOM */
 function alertMessage() {
-    alert("You forgot to add a new to do!");
+    const alertParagraph = document.createElement('p');
+    alertParagraph.innerHTML = "Ops! You forgot to add a new to do!";
+    alert.appendChild(alertParagraph);
+
+    addButton.addEventListener('click', function () {
+        alertParagraph.remove();
+    })
+    
+    toDoInput.addEventListener('keypress', function (e) {
+        const enterKey = e.keyCode;
+        if (enterKey === 13) {
+            if (toDoInput.value === '') {
+                alertParagraph.remove();
+            } else {
+                event.preventDefault();
+                if (event.keyCode === 13) {
+                    document.getElementById('addButton').click();
+                }
+            }
+        }
+    })
 }
 
 /* Function for creating a new list item with done and 
@@ -19,8 +35,8 @@ delete buttons */
 function createNewToDo() {
     const listItem = document.createElement('li');
     const buttonContainer = document.createElement('div');
-    var doneButton = document.createElement('button');
-    var deleteButton = document.createElement('button');
+    const doneButton = document.createElement('button');
+    const deleteButton = document.createElement('button');
 
     listItem.innerText = toDoInput.value;
 
@@ -53,13 +69,11 @@ function createNewToDo() {
 
     // Deletes todo from 'stuff to do' list when clicked
     deleteButton.addEventListener('click', function () {
-        var deleteButton = document.getElementsByClassName('deleteButton');
         removeItems();
     })
 
     // Deletes every to do on both lists
     emptyAllButton.addEventListener('click', function () {
-        var emptyAllButton = document.getElementsByClassName('emptyAllButton');
         removeItems();
     })
 }
