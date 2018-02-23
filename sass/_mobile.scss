@@ -40,6 +40,26 @@ label {
     color: #fff;
 }
 
+#alert {
+    display: flex;
+    justify-content: center;
+    p {
+        margin: -10px 0 30px 0;
+        padding: 20px 40px;
+        width: 270px;
+        font-size: .7rem;
+        background-color: #fff000;
+        border-radius: 15px;
+        box-shadow: 0px 0px 15px -2px rgba(0,0,0,0.2);
+        animation: fadein 3s;
+        -webkit-animation: fadein 1s;
+    }
+}
+
+.boldText {
+    font-weight: 400;
+}
+
 .addToDoWrapper {
     display: flex;
     align-items: center;
