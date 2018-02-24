@@ -8,22 +8,34 @@ const emptyAllButton = document.getElementById('emptyAllButton');
 the alert div in DOM */
 function alertMessage() {
     const alertParagraph = document.createElement('p');
-    
+
     alertParagraph.innerHTML = 
         "<span class='boldText'>Ops!</span> You forgot to add a new to do!";
     alert.appendChild(alertParagraph);
 
+    /* Prevents that more than one alert paragraph is printed
+    if addButton is clicked */
     addButton.addEventListener('click', function () {
         alertParagraph.remove();
     })
     
+    /* Prevents that more than one alert paragraph is printed
+    when enter key is pressed or if a new to do is being written */
     toDoInput.addEventListener('keypress', function (e) {
         const enterKey = e.keyCode;
-        if (enterKey === 13) {
-            if (toDoInput.value === '') {
+        if (enterKey === 13 && toDoInput.value === '') {
+            alertParagraph.remove();
+        } else {
+            alertParagraph.classList.add('fadeOut');
+            setTimeout(function () {
                 alertParagraph.remove();
-            }
+            }, 200);
         }
+    })
+
+    // Removes alert paragraph if emptyALlButton is clicked
+    emptyAllButton.addEventListener('click', function () {
+        alertParagraph.remove();
     })
 }
 
@@ -61,7 +73,7 @@ function createNewToDo() {
         listItem.classList.add('fadeOut');
         setTimeout(function () {
             listItem.remove();
-        }, 400);
+        }, 200);
     }
 
     // Deletes todo from 'stuff to do' list when clicked
