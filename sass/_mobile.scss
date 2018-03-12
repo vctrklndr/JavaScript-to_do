@@ -69,27 +69,20 @@ label {
     margin: 15px 10px;
     padding: 10px;
     width: 260px;
+    font-size: 1rem;
     letter-spacing: .05rem;
     background-color: #fff;
     border-radius: 15px;
     border: 0;
 }
 
-#addButton,
-#addButton:active {
+#addButton {
     padding: 10px 20px;
     color: #fff;
     letter-spacing: .05rem;
     background-color: transparent;
     border-radius: 25px;
     border: 1px solid #fff;
-}
-
-#addButton:hover {
-    color: #000;
-    background-color: #fff;
-    transition: all 400ms;
-    cursor: pointer;
 }
 
 .listWrapper {
@@ -147,22 +140,9 @@ label {
     border: 1px solid #1c1f6c;
 }
 
-.doneButton:hover,
-.deleteButton:hover {
-    color: #fff;
-    background-color: #1c1f6c;
-    transition: all 400ms;
-    cursor: pointer;
-}
-
 #emptyAllButton {
     @extend #addButton;
     margin-top: 10px;
-}
-
-#emptyAllButton:hover,
-#emptyAllButton:active {
-    @extend #addButton:hover;
 }
 
 .fadeOut {

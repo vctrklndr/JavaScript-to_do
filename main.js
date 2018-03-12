@@ -33,7 +33,7 @@ function alertMessage() {
         }
     })
 
-    // Removes alert paragraph if emptyALlButton is clicked
+    // Removes alert paragraph if emptyAllButton is clicked
     emptyAllButton.addEventListener('click', function () {
         alertParagraph.remove();
     })
